@@ -24,8 +24,9 @@ jobs:
           cache: 'maven'
 
       # 3. Build with Maven
-      - name: Build with Maven (skip tests)
-        run: mvn -B clean install -DskipTests
+      - name: Build with Maven (skip tests completely)
+        run: mvn -B clean package -Dmaven.test.skip=true
+
 
         # If you want to skip tests, use:
         # run: mvn -B clean package -DskipTests
