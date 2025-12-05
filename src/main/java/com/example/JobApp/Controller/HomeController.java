@@ -19,7 +19,7 @@ public class HomeController {
         return "home";
     }
     
-    @GetMapping("/jobPosts")
+    @GetMapping(path = "/jobPosts",produces = {"application/json"})
     public List<JobPost> viewAllJobs() {
         return service.getAllJobs();
     }

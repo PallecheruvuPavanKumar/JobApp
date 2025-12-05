@@ -73,6 +73,13 @@
             <artifactId>jakarta.servlet.jsp.jstl</artifactId>
 
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/tools.jackson.dataformat/jackson-dataformat-xml -->
+        <dependency>
+            <groupId>tools.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-xml</artifactId>
+            <version>3.0.0</version>
+        </dependency>
 	</dependencies>
 
 	<build>
