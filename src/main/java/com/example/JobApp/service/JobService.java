@@ -48,4 +48,8 @@ public class JobService {
         jobRepo.saveAll(jobs);
         
     }
+    
+    public List<JobPost> getNameUsingPostDesc(String postProfile,String postDesc){
+        return jobRepo.findByPostProfileContainingOrPostDesc(postProfile,postDesc);
+    }
 }

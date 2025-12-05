@@ -62,4 +62,9 @@ public class HomeController {
         service.load();
         return "success";
     }
+    
+    @GetMapping("/jobPosts/keyword/{keyword}")
+    public List<JobPost> findByPostDesc(@PathVariable("keyword") String keyword){
+        return service.getNameUsingPostDesc(keyword,keyword);
+    }
 }
