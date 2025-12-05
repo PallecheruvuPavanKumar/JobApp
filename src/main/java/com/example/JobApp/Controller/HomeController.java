@@ -56,4 +56,10 @@ public class HomeController {
     public void deleteJob(@PathVariable int postId){
         service.deleteJob(postId);
     }
+    
+    @GetMapping("load")
+    public String loadData() {
+        service.load();
+        return "success";
+    }
 }
