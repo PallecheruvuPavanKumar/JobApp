@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan({"com.example.JobApp.Controller","com.example.JobApp.service","com.example.JobApp.repositary"})
+@ComponentScan({"com.example.JobApp.Controller","com.example.JobApp.service","com.example.JobApp.repositary","com.example.JobApp.configuration"})
 public class JobAppApplication {
 
 	public static void main(String[] args) {
