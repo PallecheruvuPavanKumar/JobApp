@@ -1,6 +1,7 @@
 package com.example.JobApp.configuration;
 
 import com.example.JobApp.service.MyUserDetailsService;
+import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,6 +17,7 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
+@NoArgsConstructor
 public class SecurityConfig {
     
     @Autowired
