@@ -12,16 +12,12 @@ import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import java.security.Key;
 import java.security.NoSuchAlgorithmException;
-import java.util.Base64;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Function;
 
 @Service
 public class JwtService {
     
-    private static final String SECRET = "TmV3U2VjcmV0S2V5Rm9ySldUU2lnbmluZ1B1cnBvc2VzMTIzNDU2Nzg=\r\n";
     
     private String secretKey;
     
@@ -43,6 +39,7 @@ public class JwtService {
     public String generateToken(String username) {
         
         Map<String, Object> claims = new HashMap<>();
+        claims.put("roles", List.of("ROLE_USER"));
         
         return Jwts.builder()
                 .setClaims(claims)
@@ -70,10 +67,11 @@ public class JwtService {
     
     private Claims extractAllClaims(String token) {
         return Jwts.parser()
-                .setSigningKey(getKey())
-                .build().parseClaimsJws(token).getBody();
+                .setSigningKey(getKey())   // set the signing key
+                .build()                   // build the parser
+                .parseClaimsJws(token)     // parse the token
+                .getBody();                // get claims
     }
-    
     
     public boolean validateToken(String token, UserDetails userDetails) {
         final String userName = extractUserName(token);

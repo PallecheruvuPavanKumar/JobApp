@@ -1,5 +1,6 @@
 package com.example.JobApp.Model;
 
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
@@ -15,12 +16,14 @@ import java.util.List;
 @Component
 @Entity
 public class JobPost {
-    
+
     @Id
     private int postId;
     private String postProfile;
     private String postDesc;
     private int reqExperience;
+
+    @ElementCollection
     private List<String> postTechStack;
-    
+
 }

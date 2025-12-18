@@ -2,7 +2,7 @@ package com.example.JobApp.Controller;
 
 import com.example.JobApp.Model.User;
 import com.example.JobApp.service.JwtService;
-import com.example.JobApp.service.MyUserDetailsService;
+
 import com.example.JobApp.service.UserRegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.security.NoSuchAlgorithmException;
+
 
 @RestController
 public class UserRegistrationController {
@@ -35,7 +35,8 @@ public class UserRegistrationController {
     
     @PostMapping("/login")
     public String loginToApp(@RequestBody User user) {
-        Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
+        Authentication authenticate = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
         if (authenticate.isAuthenticated()) {
             String token = jwtService.generateToken(user.getUsername());
             return token;
